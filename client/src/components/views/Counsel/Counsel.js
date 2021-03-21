@@ -172,7 +172,7 @@ function Counsel() {
         <div className='pageSize'>
 
             <h2 className="pageStart">
-                Test Code
+                심리 상담소
             </h2>
             <div className='grayBorder'/>
             <br/>

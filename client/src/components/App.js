@@ -19,24 +19,19 @@ function App() {
       
      
       <br/>
-      
-      <div style={{ minHeight: 'calc(100vh - 80px)'}}>
-        
-        <Switch>
-          <Route exact path="/" component={LandingPage} />
-          <Route exact path="/counsel" component={Counsel} />
-          <Route exact path="/:url" component={NotFound} />
+      <div className='bg'>
+        <div style={{ minHeight: 'calc(100vh - 80px)'}}>
           
+          <Switch>
+            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/counsel" component={Counsel} />
+            <Route exact path="/:url" component={NotFound} />
+          </Switch>
           
-        </Switch>
+        </div>
         
+        <Footer />
       </div>
-      <div className='space'></div>
-      
-      
-      <Footer />
-     
-      <div className='spacing'/>
 
     </Suspense>
   
