@@ -1,0 +1,21 @@
+{
+  "short_name": "심리상담소",
+  "name": "심리상담소",
+  "icons": [
+    {
+      "src": "favicon32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+    ,
+    {
+      "src": "favicon196.png",
+      "sizes": "196x196",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "http://localhost:3000/",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

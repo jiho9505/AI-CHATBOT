@@ -1,0 +1,414 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;500&display=swap');
+
+:root {
+   
+  --color-white: #ffffff;
+  --color-light-white: #eeeeee;
+  --color-dark-white: #bdbdbd;
+  --color-main: #5c6bc0;
+  --color-dark-main: #26418f;
+  --color-dark-grey: #4d4d4d;
+  --color-grey: #616161;
+  --color-light-grey: #7c7979;
+  --color-blue: #73aace;
+  --color-yellow: #fff7d1;
+  --color-orange: #feb546;
+  --color-black: #000000;
+
+  
+  --font-large: 48px;
+  --font-medium: 28px;
+  --font-regular: 18px;
+  --font-small: 16px;
+  --font-micro: 14px;
+
+ 
+  --weight-bold: 500;
+  --weight-semi-bold: 300;
+  --weight-regular: 100;
+
+
+  --size-border-radius: 4px;
+
+ 
+  --animation-duration: 300ms;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; 
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-white);
+}
+
+
+button {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+h1 {
+  font-size: var(--font-large);
+  font-weight: var(--weight-bold);
+  color: var(--color-black);
+  margin: 16px 0px;
+}
+
+h2 {
+  font-size: var(--font-medium);
+  font-weight: var(--weight-semi-bold);
+  color: var(--color-black);
+  margin: 8px 0;
+}
+
+h3 {
+  font-size: var(--font-regular);
+  font-weight: var(--weight-regular);
+  color: var(--color-black);
+  margin: 8px 0;
+}
+
+p {
+  font-size: var(--font-regular);
+  font-weight: var(--weight-regular);
+  color: var(--color-black);
+  margin: 4px 0;
+}
+
+
+.pageSize{
+  max-width : 1100px;
+  margin : auto;
+}
+
+.pageStart{
+  margin-top: 75px;
+  border-bottom: 1px solid #18c6b5;
+  font-size: 1.5rem;
+}
+
+._pageStart{
+  margin-top: 75px;
+  font-size: 1.5rem;
+}
+
+.grayBorder{
+  border : 1px solid #eee;
+}
+
+.path__map{
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+
+.path__desc{
+  margin : auto;
+  text-align: center;
+}
+
+.site-description-item-profile-wrapper {
+  margin-bottom: 7px;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 14px;
+  line-height: 1.5715;
+}
+
+[data-theme='compact'] .site-description-item-profile-wrapper {
+  font-size: 12px;
+  line-height: 1.66667;
+}
+
+.ant-drawer-body p.site-description-item-profile-p {
+  display: block;
+  margin-bottom: 16px;
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 16px;
+  line-height: 1.5715;
+}
+
+
+[data-theme='compact'] .ant-drawer-body p.site-description-item-profile-p {
+  font-size: 14px;
+  line-height: 1.66667;
+}
+
+ 
+
+.site-description-item-profile-p-label {
+  display: inline-block;
+  margin-right: 8px;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+
+
+input.error {
+  border-color: red;
+}
+
+
+.input-feedback {
+  color: red;
+  height: 5px;
+  margin-top: -12px;
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;  /* 세로축 스크롤바 길이 */
+  height: 20px;  /* 가로축 스크롤바 길이 */
+  }
+  ::-webkit-scrollbar-track {
+    background-color: lightblue;
+  }
+  ::-webkit-scrollbar-track-piece {
+    background-color: gainsboro;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: black;
+  }
+
+
+  .spacing{
+    height: 0px;
+  }
+
+
+  .com_spacing{
+    height: 20px;
+  }
+  
+
+  .mobilelogo{
+    display: none;
+  }
+
+  .quick {
+    display: none;
+ }
+
+ .counsel__whole {
+   display: flex;
+   justify-content: center;
+   width: 100%
+ }
+
+ .counsel__wholechat {
+    height: 570px;
+    max-width: 700px;
+    width:100%;
+    border: 3px solid black;
+    border-radius: 6px;
+ }
+
+ .counsel__chat {
+    height: 514px;
+    width: 100%;
+    overflow-y: scroll;
+ }
+
+ .counsel__input {
+    margin: 0;
+    width: 100%;
+    height: 50px;
+    border-radius: 4px;
+    padding: 5px;
+    font-size: 1rem;
+ }
+
+ .Imgslider__imgs {
+    max-width: 100%;
+    max-height: 100%;
+ }
+ 
+ 
+.land__write{
+  text-align: center;
+  margin: auto;
+}
+
+
+.land__avatars {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 2px solid #eee;
+  margin-top: 30px;
+  margin-right: 20px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.footer__whole {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size:12px;
+  background-color: black;
+  color: white
+}
+
+.updown {
+  display: none;
+}
+
+@media (max-width: 767px) {
+
+  .updown {
+    display: inline;
+  }
+
+  .land__avatars {
+    margin-right: 0px;
+    margin-top: 0px;
+    text-align: center;
+    margin: auto;
+  }
+
+  .Imgslider__imgs {
+    height: 300px;
+  }
+
+  .counsel__wholechat {
+    height: 500px;
+ }
+
+ .counsel__chat {
+    height: 444px;
+ }
+
+  .quick {
+    display: flex;
+    position: fixed;
+    z-index: 99;
+    left: 0%;
+    bottom: 0%;
+    right: initial;
+    top: initial;
+    width: 100%;
+}
+
+  .pageSize{
+    width: 90%;
+    margin : auto;
+  }
+ 
+ 
+  .com_spacing{
+    height: 0px;
+  }
+
+  .spacing{
+    height: 90px;
+  }
+
+
+  .demo-loadmore-list {
+    min-height: 350px;
+  }
+
+  .center{
+    flex-direction: column;
+  }
+
+ 
+  .space{
+    height:50px;
+ }
+
+ ::-webkit-scrollbar {
+  width: 10px;  /* 세로축 스크롤바 길이 */
+  height: 20px;  /* 가로축 스크롤바 길이 */
+  }
+  ::-webkit-scrollbar-track {
+    background-color: lightblue;
+  }
+  ::-webkit-scrollbar-track-piece {
+    background-color: gainsboro;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: black;
+  }
+
+
+}
+
+@media (max-width: 290px) {
+
+  .updown {
+    display: inline;
+  }
+  
+  .land__avatars {
+    margin-right: 0px;
+    margin-top: 0px;
+    text-align: center;
+    margin: auto;
+  }
+
+  .Imgslider__imgs {
+    height: 300px;
+  }
+
+  .com_spacing{
+    height: 0px;
+  }
+
+  .spacing{
+    height: 90px;
+  }
+
+  .demo-loadmore-list {
+    min-height: 350px;
+  }
+
+
+  .center{
+    flex-direction: column;
+  }
+ 
+  .space{
+    height:50px;
+ }
+
+ ::-webkit-scrollbar {
+  width: 10px;  /* 세로축 스크롤바 길이 */
+  height: 20px;  /* 가로축 스크롤바 길이 */
+  }
+  ::-webkit-scrollbar-track {
+    background-color: lightblue;
+  }
+  ::-webkit-scrollbar-track-piece {
+    background-color: gainsboro;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: black;
+  }
+}

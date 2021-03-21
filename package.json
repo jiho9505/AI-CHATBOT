@@ -1,0 +1,43 @@
+{
+  "name": "new_project_c",
+  "version": "1.0.0",
+  "description": "new_project",
+  "main": "index.js",
+  "engine": {
+    "node": "12.18.3",
+    "npm": "6.14.6"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "backend": "nodemon server/index.js",
+    "frontend": "npm run start --prefix client",
+    "dev": "concurrently \"npm run backend\" \"npm run start --prefix client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "author": "jiho mun",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/storage": "^5.7.4",
+    "actions-on-google": "^2.13.0",
+    "aws-sdk": "^2.786.0",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.5",
+    "debug": "^4.1.1",
+    "dialogflow": "^1.2.0",
+    "dialogflow-fulfillment": "^0.6.1",
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "react-naver-maps": "0.0.13",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "saslprep": "^1.0.3",
+    "socket.io-client": "^3.1.0",
+    "supports-color": "^7.2.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^1.19.4"
+  }
+}
