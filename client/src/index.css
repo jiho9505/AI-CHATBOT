@@ -256,7 +256,7 @@ input.error {
   align-items: center;
   justify-content: center;
   font-size:12px;
-  border-top: black 0.5px solid;
+  border-top: whitesmoke 0.5px solid;
   background: url('assets/bg.png') center/cover no-repeat;
   height: 100%;
 }

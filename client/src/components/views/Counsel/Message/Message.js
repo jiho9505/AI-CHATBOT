@@ -12,7 +12,7 @@ function Message(props) {
     return (
         <div>
             {
-                props.who ==='AI 상담요원' ?
+                props.who ==='심상이' ?
                 <List.Item style={{ padding: '1rem' }}>
                         <List.Item.Meta
                             avatar={<Avatar  icon={AvatarSrc} />}

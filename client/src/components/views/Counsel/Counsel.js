@@ -26,7 +26,7 @@ function Counsel() {
     const textQuery = async (text) => {
 
         let conversations = {
-            who: '손님',
+            who: '나',
             content: {
                 text: {
                     text: text
@@ -47,7 +47,7 @@ function Counsel() {
             for (let content of response.data.fulfillmentMessages) {
 
                 let conversation = {
-                    who: 'AI 상담요원',
+                    who: '심상이',
                     content: content
                 }
                
@@ -57,7 +57,7 @@ function Counsel() {
 
         } catch (error) {
             let conversation = {
-                who: 'AI 상담요원',
+                who: '심상이',
                 content: {
                     text: {
                         text: "에러가 발생하였습니다. 다시 시도해주세요."
@@ -83,47 +83,18 @@ function Counsel() {
             const response = await Axios.post('/api/dialogflow/eventQuery', eventQueryVariables)
             
             for (let content of response.data.fulfillmentMessages) {
-                let content1 = {
-                    text : {
-                        text : content.payload.fields.conv1.stringValue
-                    }
-                } 
-                
-                let content2 = {
-                    text : {
-                        text : content.payload.fields.conv2.stringValue
-                    }
-                } 
-
-                let content3 = {
-                    text : {
-                        text : content.payload.fields.conv3.stringValue
-                    }
-                }
 
                 let conversation = {
-                    who: 'AI 상담요원',
-                    content: content1
+                    who: '심상이',
+                    content: content
                 }
 
-                let conversation1 = {
-                    who: 'AI 상담요원',
-                    content: content2
-                }
-
-                let conversation2 = {
-                    who: 'AI 상담요원',
-                    content: content3
-                }
-              
-            
-                setallMessage([...allMessage,conversation,conversation1,conversation2])
+                setallMessage([...allMessage,conversation])
             }
-
 
         } catch (error) {
             let conversation = {
-                who: 'AI 상담요원',
+                who: '심상이',
                 content: {
                     text: {
                         text: "에러가 발생하였습니다. 다시 시도해주세요."
