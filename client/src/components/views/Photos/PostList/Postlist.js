@@ -25,8 +25,8 @@ function Postlist(props) {
         
         e.preventDefault();
         
-        if (!Description) {
-            return alert("내용 부분을 입력했는지 확인해주세요.")
+        if (!Description || !Images[0]) {
+            return alert("안 채운부분을 확인해주세요.")
         }
 
         const body = {
