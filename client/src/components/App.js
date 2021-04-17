@@ -9,6 +9,7 @@ import LoginPage from './views/LoginPage/LoginPage.js'
 import RegisterPage from './views/RegisterPage/RegisterPage.js'
 import MyPage from './views/MyPage/MyPage'
 import NavBar from './views/NavBar/NavBar.js'
+import Photos from './views/Photos/Photos'
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 
@@ -28,6 +29,7 @@ function App() {
           
           <Switch>
             <Route exact path="/" component={Auth(LandingPage, null)} />
+            <Route exact path="/photos" component={Auth(Photos, true)} />
             <Route exact path="/counsel" component={Auth(Counsel, true)} />
             <Route exact path="/login" component={Auth(LoginPage, false)} />
             <Route exact path="/register" component={Auth(RegisterPage, false)} />

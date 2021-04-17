@@ -27,6 +27,11 @@ function RightMenu(props) {
           <Link to="/counsel">
             Counsel
           </Link>
+        </Menu.Item>
+        <Menu.Item key="Photos">
+              <Link to="/photos">
+                Photos
+              </Link>
         </Menu.Item> 
         <Menu.Item key="mail">
           <Link to="/login">로그인</Link>
@@ -46,7 +51,13 @@ function RightMenu(props) {
               <Link to="/counsel">
                 Counsel
               </Link>
-            </Menu.Item> 
+            </Menu.Item>
+            <Menu.Item key="Photos">
+              <Link to="/photos">
+                Photos
+              </Link>
+            </Menu.Item>
+             
             <Menu.Item key="mypage">
               <Link to="/mypage">My Page</Link>
               
