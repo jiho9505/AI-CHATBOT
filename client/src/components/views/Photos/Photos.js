@@ -6,13 +6,13 @@ import axios from 'axios';
 
 const { Meta } = Card;
 
-const id = localStorage.getItem('userId');
+let id = localStorage.getItem('userId');
 
 function Photos() {
 
     useEffect(() => {
-        
-        axios.get(`/api/board/?id=${id}`)
+        if(id){
+            axios.get(`/api/board/?id=${id}`)
                 .then(response => {
                     if (response.data.success) {
                         setphotos(response.data.result)
@@ -20,6 +20,8 @@ function Photos() {
                         alert('Error')
                     }
                 })
+        }
+        
     }, [])
 
     const [photos, setphotos] = useState([])
