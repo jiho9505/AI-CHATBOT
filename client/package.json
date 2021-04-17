@@ -10,14 +10,21 @@
     "antd": "^4.10.3",
     "axios": "^0.21.1",
     "core-js": "^3.6.4",
+    "formik": "^2.2.6",
     "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-app-polyfill": "^1.0.6",
     "react-dom": "^16.8.6",
+    "react-dropzone": "^11.3.2",
     "react-icons": "^3.7.0",
     "react-naver-maps": "0.0.13",
+    "react-redux": "^7.2.3",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "^4.0.1"
+    "react-scripts": "^4.0.1",
+    "redux": "^4.0.5",
+    "redux-promise": "^0.6.0",
+    "redux-thunk": "^2.3.0",
+    "yup": "^0.32.9"
   },
   "scripts": {
     "start": "react-scripts start",

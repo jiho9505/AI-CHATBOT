@@ -91,6 +91,23 @@ p {
   margin: 4px 0;
 }
 
+.app_ {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+}
+.reg_button{
+  margin-left: 80px;
+}
+
+.mypage {
+  width: 90%;
+  margin: 3rem auto;
+  background-color: white;
+  border-radius: 12px;
+}
 
 .pageSize{
   max-width : 1100px;
@@ -162,7 +179,7 @@ input.error {
 .input-feedback {
   color: red;
   height: 5px;
-  margin-top: -12px;
+  margin-top: -5px;
 }
 
 
