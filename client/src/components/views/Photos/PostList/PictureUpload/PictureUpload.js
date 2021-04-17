@@ -1,23 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Dropzone from 'react-dropzone'
-import { Icon } from 'antd';
 import axios from 'axios';
-
+import {PlusOutlined} from '@ant-design/icons'
 
 function PictureUpload(props) {
-    useEffect(() => {
-       
-        if(props.images.length>0){
-            setImages([...props.images])
-            setShow(true)
-        }
-    }, [props.images])
-
+    
     const [Images, setImages] = useState([])
     const [Show, setShow] = useState(false)
 
     const dropHandler = (files) => {
-
+        if(Images.length>0){
+            alert('1장만 업로드 가능합니다!')
+            return;
+        }
         let formData = new FormData();
         const config = {
             header: { 'content-type': 'multipart/fomr-data' }
@@ -57,16 +52,19 @@ function PictureUpload(props) {
     return (
         <div>
             <Dropzone onDrop={dropHandler}>
+           
                 {({ getRootProps, getInputProps }) => (
-                   <div style={{display:'flex', justifyContent:'center' , height: 30}} {...getRootProps()}>
+                   <div style={{width: '280px', height: '220px', border: '1px solid lightgray',
+                   display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'white'}} {...getRootProps()}>
                         <input {...getInputProps()} />
                        
-                        <Icon type="plus" /> 사진 추가
                         
+                        <PlusOutlined />
                         
                   </div>
                 )}
             </Dropzone>
+            <br/>
             {Show ? 
             <div style={{display:'flex', justifyContent:'center'}}>
                 <div style={{  width: '300px', height: '290px', overflowX: 'scroll' }}>

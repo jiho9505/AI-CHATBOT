@@ -10,6 +10,7 @@ import RegisterPage from './views/RegisterPage/RegisterPage.js'
 import MyPage from './views/MyPage/MyPage'
 import NavBar from './views/NavBar/NavBar.js'
 import Photos from './views/Photos/Photos'
+import Postlist from './views/Photos/PostList/Postlist'
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 
@@ -28,7 +29,10 @@ function App() {
         <div style={{ minHeight: 'calc(100vh - 80px)'}}>
           
           <Switch>
+          
+
             <Route exact path="/" component={Auth(LandingPage, null)} />
+            <Route exact path="/postlist" component={Auth(Postlist, true)} />
             <Route exact path="/photos" component={Auth(Photos, true)} />
             <Route exact path="/counsel" component={Auth(Counsel, true)} />
             <Route exact path="/login" component={Auth(LoginPage, false)} />

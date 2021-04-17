@@ -29,9 +29,9 @@ function RightMenu(props) {
           </Link>
         </Menu.Item>
         <Menu.Item key="Photos">
-              <Link to="/photos">
-                Photos
-              </Link>
+          <Link to="/photos">
+            Photos
+          </Link>
         </Menu.Item> 
         <Menu.Item key="mail">
           <Link to="/login">로그인</Link>
@@ -44,7 +44,6 @@ function RightMenu(props) {
       </Menu>
     )
   } else {
-      if (user.userData && user.userData.isAuth && !user.userData.role){
         return (
           <Menu mode={props.mode}>
             <Menu.Item key="home">
@@ -69,10 +68,6 @@ function RightMenu(props) {
           </Menu>
         )
       }
-    /*else{
-      return ''
-    }*/
-  }
 }
 
 export default withRouter(RightMenu);
