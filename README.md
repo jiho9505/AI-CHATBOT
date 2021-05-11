@@ -9,15 +9,18 @@
 </p>
 
 ## 프로젝트 개발내용
-<p>- React와 Node.js 이용</p> 
-<p>- Using Dialogflow</p> 
+<p>- MERN STACK / CSR</p> 
+<p>- Using Dialogflow</p>
+<p>- Mobile Programming</p>  
 
 <!-- 
 ## 프로젝트 개발동기
 <p>- Dialogflow를 웹과 결합하여 간단한 챗봇 서비스를 해보고 싶었다.</p> -->
 
 ## 최종 결과물
-<!-- 🏠 [Homepage] url 첨부 -->
+<p> 홈페이지(모바일 Version) </p>
+🏠 [https://aicapston.herokuapp.com/] 
+
 <br><br/>
 ## Install
 server 와 client folder 각각
