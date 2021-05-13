@@ -19,6 +19,7 @@
 
 ## 최종 결과물
 <p> 홈페이지(모바일 Version) </p>
+<p> Sleep mode라 초기 로딩 delay </p>
 🏠 [https://aicapston.herokuapp.com/] 
 
 <br><br/>
