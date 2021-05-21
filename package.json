@@ -17,6 +17,7 @@
   "author": "jiho mun",
   "license": "ISC",
   "dependencies": {
+    "@google-cloud/dialogflow-cx": "^2.7.0",
     "@google-cloud/storage": "^5.7.4",
     "actions-on-google": "^2.13.0",
     "antd": "^4.15.1",

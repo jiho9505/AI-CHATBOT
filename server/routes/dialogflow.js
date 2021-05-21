@@ -1,14 +1,30 @@
 const express = require('express');
 const router = express.Router();
-const dialogflow = require('dialogflow');
+// const dialogflow = require('dialogflow');
 const config = require('../config/key');
 
-const projectId = config.googleProjectID
-const sessionId = config.dialogFlowSessionID
-const languageCode = config.dialogFlowSessionLanguageCode
+const {SessionsClient} = require('@google-cloud/dialogflow-cx');
 
-const sessionClient = new dialogflow.SessionsClient();
-const sessionPath = sessionClient.sessionPath(projectId, sessionId);
+const projectId = config.googleProjectID
+// const sessionId = config.dialogFlowSessionID
+const languageCode = config.dialogFlowSessionLanguageCode
+const location = 'global';
+const agentId = 'demo-v1';
+// const sessionClient = new dialogflow.SessionsClient();
+// const sessionPath = sessionClient.sessionPath(projectId, sessionId);
+
+const client = new SessionsClient();
+
+const sessionId = Math.random().toString(36).substring(7);
+const sessionPath = client.projectLocationAgentSessionPath(
+    projectId,
+    location,
+    agentId,
+    sessionId
+);
+console.info(sessionPath);
+
+// console.log(GOOGLE_APPLICATION_CREDENTIALS);
 
 router.post('/textQuery', async (req, res) => {
 
@@ -19,11 +35,12 @@ router.post('/textQuery', async (req, res) => {
                 text: req.body.text,
                 languageCode: languageCode,
             },
+            languageCode: languageCode,
         },
     };
 
    
-    const responses = await sessionClient.detectIntent(request);
+    const responses = await client.detectIntent(request);
     console.log('Detected intent');
     const result = responses[0].queryResult;
     console.log(`  Query: ${result.queryText}`);
@@ -40,12 +57,13 @@ router.post('/eventQuery', async (req, res) => {
         queryInput: {
             event: {
                 name: req.body.event,
-                languageCode: languageCode,
+                
             },
+            languageCode: languageCode,
         },
     };
-
-    const responses = await sessionClient.detectIntent(request);
+    console.log('Detectestsettent');
+    const responses = await client.detectIntent(request);
     console.log('Detected intent');
 
     const result = responses[0].queryResult;
