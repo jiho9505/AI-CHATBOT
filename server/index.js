@@ -29,6 +29,7 @@ app.use(cookieParser());
 app.use('/api/dialogflow', require('./routes/dialogflow'));
 app.use('/api/users', require('./routes/users'));
 app.use('/api/board', require('./routes/board'));
+app.use('/api/chats', require('./routes/chats'));
 //use this to show the image you have in node js server to client (react js)
 
 app.use('/storeImages', express.static('storeImages'));

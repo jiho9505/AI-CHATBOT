@@ -1,19 +1,15 @@
 const express = require('express');
 const router = express.Router();
-// const dialogflow = require('dialogflow');
 const config = require('../config/key');
 
 const {SessionsClient} = require('@google-cloud/dialogflow-cx');
 
 const projectId = config.googleProjectID
-// const sessionId = config.dialogFlowSessionID
 const languageCode = config.dialogFlowSessionLanguageCode
-const location = 'global';
-const agentId = 'demo-v1';
-// const sessionClient = new dialogflow.SessionsClient();
-// const sessionPath = sessionClient.sessionPath(projectId, sessionId);
+const agentId = config.agentId
 
-const client = new SessionsClient();
+const location = 'asia-northeast1'
+const client = new SessionsClient({apiEndpoint: 'asia-northeast1-dialogflow.googleapis.com'})
 
 const sessionId = Math.random().toString(36).substring(7);
 const sessionPath = client.projectLocationAgentSessionPath(
@@ -22,9 +18,6 @@ const sessionPath = client.projectLocationAgentSessionPath(
     agentId,
     sessionId
 );
-console.info(sessionPath);
-
-// console.log(GOOGLE_APPLICATION_CREDENTIALS);
 
 router.post('/textQuery', async (req, res) => {
 
@@ -33,20 +26,20 @@ router.post('/textQuery', async (req, res) => {
         queryInput: {
             text: {           
                 text: req.body.text,
-                languageCode: languageCode,
+                
             },
             languageCode: languageCode,
         },
     };
 
    
-    const responses = await client.detectIntent(request);
-    console.log('Detected intent');
-    const result = responses[0].queryResult;
-    console.log(`  Query: ${result.queryText}`);
-    console.log(`  Response: ${result.fulfillmentText}`);
-
-    res.send(result)
+    const [response] = await client.detectIntent(request);
+    for (const message of response.queryResult.responseMessages) {
+        if (message.text) {
+        res.send(message.text.text)
+        }
+    }
+  
 })
 
 
@@ -62,16 +55,23 @@ router.post('/eventQuery', async (req, res) => {
             languageCode: languageCode,
         },
     };
-    console.log('Detectestsettent');
-    const responses = await client.detectIntent(request);
-    console.log('Detected intent');
 
-    const result = responses[0].queryResult;
-    console.log(`  Query: ${result.queryText}`);
-    console.log(`  Response: ${result.fulfillmentText}`);
-    // console.log(`  Response: ${result.fulfillmentMessages}`);
+    const [response] = await client.detectIntent(request);
+    for (const message of response.queryResult.responseMessages) {
+        if (message.text) {
+        res.send(message.text.text)
+        }
+    }
+    // console.log('Detectestsettent');
+    // const responses = await client.detectIntent(request);
+    // console.log('Detected intent');
 
-    res.send(result)
+    // const result = responses[0].queryResult;
+    // console.log(`  Query: ${result.queryText}`);
+    // console.log(`  Response: ${result.fulfillmentText}`);
+    // // console.log(`  Response: ${result.fulfillmentMessages}`);
+
+    // res.send(result)
 })
 
 

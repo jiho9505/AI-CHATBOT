@@ -1,15 +1,28 @@
 import React, { useState, useEffect , useRef} from 'react';
 import Axios from 'axios';
 import Message from './Message/Message';
+import { Button } from 'antd';
+const _id = window.localStorage.getItem('userId');
 
 function Counsel() {
     
     const messagesEnd = useRef(null)
     const [allMessage, setallMessage] = useState([])
-
-    useEffect(() => {
-        eventQuery('welcomeToMyWebsite')
-    }, [])
+    
+    
+    // useEffect( () => {
+    //     const response = Axios.post('/api/chats/', _id)
+    //                         .then(response => response.data);
+    //     console.log(response);
+    //     if(response.success){
+    //         const msg = response.msg.reverse();
+    //         setallMessage(msg);
+    //         eventQuery('welcomeToMyWebsite');
+    //     }else{
+    //         alert('채팅을 가져오는데 문제가 생겼습니다!')
+    //     }
+        
+    // }, [])
 
     useEffect(() => {
         messagesEnd.current.scrollTo({
@@ -43,16 +56,20 @@ function Counsel() {
         try {
             
             const response = await Axios.post('/api/dialogflow/textQuery', textQueryVariables)
-
-            for (let content of response.data.fulfillmentMessages) {
-
-                let conversation = {
-                    who: '심상이',
-                    content: content
+            console.log('c',response.data[0])
+            
+                
+            let conversation = {
+                who: '심상이',
+                content: {
+                    text: {
+                        text: response.data[0]
+                    }
                 }
+            }
                
-                setallMessage([...allMessage,conversations,conversation])
-            } 
+            setallMessage([...allMessage,conversations,conversation])
+            
 
 
         } catch (error) {
@@ -163,6 +180,7 @@ function Counsel() {
 
                 </div>
             </div>
+            <div> <Button>Save</Button></div>
             <br/>
         </div>
         
