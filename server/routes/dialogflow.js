@@ -49,14 +49,15 @@ router.post('/eventQuery', async (req, res) => {
         session: sessionPath,
         queryInput: {
             event: {
-                name: req.body.event,
+                event: req.body.event,
                 
             },
             languageCode: languageCode,
         },
     };
-
+    // query_input.event.event
     const [response] = await client.detectIntent(request);
+    // console.log('raaaaaaaaaaaaaaaaaaaaaaa',response)
     for (const message of response.queryResult.responseMessages) {
         if (message.text) {
         res.send(message.text.text)

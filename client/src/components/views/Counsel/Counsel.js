@@ -10,19 +10,20 @@ function Counsel() {
     const [allMessage, setallMessage] = useState([])
     
     
-    // useEffect( () => {
-    //     const response = Axios.post('/api/chats/', _id)
-    //                         .then(response => response.data);
-    //     console.log(response);
-    //     if(response.success){
-    //         const msg = response.msg.reverse();
-    //         setallMessage(msg);
-    //         eventQuery('welcomeToMyWebsite');
-    //     }else{
-    //         alert('채팅을 가져오는데 문제가 생겼습니다!')
-    //     }
+    useEffect( () => {
+        eventQuery('welcomeToMyWebsite');
+        // const response = Axios.post('/api/chats/', _id)
+        //                     .then(response => response.data);
+        // console.log(response);
+        // if(response.success){
+        //     const msg = response.msg.reverse();
+        //     setallMessage(msg);
+            
+        // }else{
+        //     alert('채팅을 가져오는데 문제가 생겼습니다!')
+        // }
         
-    // }, [])
+    }, [])
 
     useEffect(() => {
         messagesEnd.current.scrollTo({
@@ -56,8 +57,6 @@ function Counsel() {
         try {
             
             const response = await Axios.post('/api/dialogflow/textQuery', textQueryVariables)
-            console.log('c',response.data[0])
-            
                 
             let conversation = {
                 who: '심상이',
@@ -98,16 +97,15 @@ function Counsel() {
         try {
 
             const response = await Axios.post('/api/dialogflow/eventQuery', eventQueryVariables)
-            
-            for (let content of response.data.fulfillmentMessages) {
-
-                let conversation = {
-                    who: '심상이',
-                    content: content
+            let conversation = {
+                who: '심상이',
+                content: {
+                    text: {
+                        text: response.data[0]
+                    }
                 }
-
-                setallMessage([...allMessage,conversation])
             }
+            setallMessage([...allMessage,conversation])
 
         } catch (error) {
             let conversation = {
