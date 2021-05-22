@@ -3,7 +3,7 @@ const router = express.Router();
 const { Chats } = require("../models/Chats");
 const { auth } = require("../middleware/auth");
 
-router.post("/", (req, res) => {
+router.post("/get", (req, res) => {
     // Chats.findOne({ writer : req.body._id } , (err,msg)=>{
     //     if(err) return res.json({ success: false, message: 'Error 발생..' })
        

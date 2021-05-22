@@ -2,6 +2,10 @@ import React, { useState, useEffect , useRef} from 'react';
 import Axios from 'axios';
 import Message from './Message/Message';
 import { Button } from 'antd';
+
+import Caudio from './Caudio.js'
+
+
 const _id = window.localStorage.getItem('userId');
 
 function Counsel() {
@@ -9,20 +13,9 @@ function Counsel() {
     const messagesEnd = useRef(null)
     const [allMessage, setallMessage] = useState([])
     
-    
     useEffect( () => {
-        eventQuery('welcomeToMyWebsite');
-        // const response = Axios.post('/api/chats/', _id)
-        //                     .then(response => response.data);
-        // console.log(response);
-        // if(response.success){
-        //     const msg = response.msg.reverse();
-        //     setallMessage(msg);
-            
-        // }else{
-        //     alert('채팅을 가져오는데 문제가 생겼습니다!')
-        // }
-        
+       eventQuery('welcomeToMyWebsite');
+         
     }, [])
 
     useEffect(() => {
@@ -57,19 +50,17 @@ function Counsel() {
         try {
             
             const response = await Axios.post('/api/dialogflow/textQuery', textQueryVariables)
-                
+            let data = response.data[0]
             let conversation = {
                 who: '심상이',
                 content: {
                     text: {
-                        text: response.data[0]
+                        text: data
                     }
                 }
             }
-               
+            await Axios.post('/api/gs/tts',{'text':data})
             setallMessage([...allMessage,conversations,conversation])
-            
-
 
         } catch (error) {
             let conversation = {
@@ -80,7 +71,9 @@ function Counsel() {
                     }
                 }
             }
-
+            await Axios.post('/api/gs/tts',{'text':"에러가 발생하였습니다. 다시 시도해주세요."})
+            
+          
             setallMessage([...allMessage,conversations,conversation])
 
 
@@ -97,14 +90,17 @@ function Counsel() {
         try {
 
             const response = await Axios.post('/api/dialogflow/eventQuery', eventQueryVariables)
+            let data = response.data[0];
             let conversation = {
                 who: '심상이',
                 content: {
                     text: {
-                        text: response.data[0]
+                        text: data
                     }
                 }
             }
+            await Axios.post('/api/gs/tts',{'text':data})
+
             setallMessage([...allMessage,conversation])
 
         } catch (error) {
@@ -116,6 +112,7 @@ function Counsel() {
                     }
                 }
             }
+            await Axios.post('/api/gs/tts',{'text':"에러가 발생하였습니다. 다시 시도해주세요."})
             setallMessage([...allMessage,conversation])
         }           
 
@@ -162,6 +159,8 @@ function Counsel() {
             </h2>
             <div className='grayBorder'/>
             <br/>
+            <Caudio></Caudio>
+            
             <div className="counsel__whole">
                 <div className="counsel__wholechat">
                     <div className="counsel__chat" ref={messagesEnd}>
