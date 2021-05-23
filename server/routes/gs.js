@@ -27,7 +27,7 @@ router.post('/tts', async (req, res) => {
     const road = '../../client/src/components/views/Counsel/output.mp3'
     const testPath = path.resolve(__dirname, "../../client", "src", 'components', 'views' , 'Counsel' , 'output.mp3')
     // const th = path.posix.join(__dirname, road)
-  
+    console.log('p',path.join(__dirname,''))
     // console.log('p',th)
     // C:\Users\문지호\Desktop\WebProject\Web_Capston\server\routes
     // '

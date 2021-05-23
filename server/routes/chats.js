@@ -12,8 +12,7 @@ router.post("/get", (req, res) => {
             msg: msg
         });
     })
-   
-
+    return; 
 });
 
 router.post("/make", (req, res) => {
