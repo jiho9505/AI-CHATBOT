@@ -11,6 +11,7 @@ function Counsel() {
     
     const messagesEnd = useRef(null)
     const [allMessage, setallMessage] = useState([])
+    const [Switch, setSwitch] = useState(false)
     let prev = [];
     
     useEffect( () => {
@@ -69,7 +70,8 @@ function Counsel() {
                     }
                 }
             }
-            await Axios.post('/api/gs/tts',{'text':data})
+            if(Switch) Axios.post('/api/gs/tts',{'text':data})
+    
             setallMessage([...allMessage,conversations,conversation])
 
         } catch (error) {
@@ -112,7 +114,7 @@ function Counsel() {
             await Axios.post('/api/gs/tts',{'text':data})
        
             prev.length === 0 ? setallMessage([conversation]) : setallMessage([...prev[0],conversation])
-
+            
         } catch (error) {
             let conversation = {
                 who: '심상이',
@@ -180,6 +182,10 @@ function Counsel() {
         }
     }
 
+    const switchState = () => {
+        setSwitch(!Switch)
+    }
+
     return (
         <div className='pageSize'>
 
@@ -206,7 +212,12 @@ function Counsel() {
 
                 </div>
             </div>
-            <div> <Button onClick={clickSave}>Save</Button></div>
+            <br/>
+            <div className='center'> 
+                <Button type="primary" onClick={clickSave} style={{marginRight:'15px'}}>Save</Button>
+                { Switch ? <Button type="primary" onClick={switchState}>Turn off Voice</Button> :
+                <Button type="primary" onClick={switchState}>Turn on Voice</Button>}
+            </div>
             <br/>
         </div>
         
