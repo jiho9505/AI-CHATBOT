@@ -1,8 +1,7 @@
 import React, { useState, useEffect , useRef} from 'react';
 import Axios from 'axios';
 import Message from './Message/Message';
-import { Button } from 'antd';
-
+import { Button, message } from 'antd';
 import Caudio from './Caudio.js'
 
 
@@ -23,7 +22,6 @@ function Counsel() {
        }
        fun();
        
-         
     }, [])
 
     useEffect(() => {
@@ -158,6 +156,24 @@ function Counsel() {
         }
     }
 
+    const clickSave = async () => {
+        if(window.confirm('대화를 저장하시겠습니까?')){
+            let data = {
+                '_id' : _id,
+                'msg' : allMessage
+            };
+            const rep = await Axios.post('/api/chats/make',data)
+                             .then(response => response.data);
+            if(rep.success){
+                message.config({
+                    top: 100
+                  })
+                message.success("Success Save")
+            }else{
+                alert('Error(chats dont save !!)')
+            }
+        }
+    }
 
     return (
         <div className='pageSize'>
@@ -185,7 +201,7 @@ function Counsel() {
 
                 </div>
             </div>
-            <div> <Button>Save</Button></div>
+            <div> <Button onClick={clickSave}>Save</Button></div>
             <br/>
         </div>
         
