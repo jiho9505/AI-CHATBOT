@@ -83,9 +83,7 @@ function Counsel() {
                     }
                 }
             }
-            await Axios.post('/api/gs/tts',{'text':"에러가 발생하였습니다. 다시 시도해주세요."})
-            
-          
+            if(Switch) Axios.post('/api/gs/tts',{'text':"에러가 발생하였습니다. 다시 시도해주세요."})
             setallMessage([...allMessage,conversations,conversation])
 
 
