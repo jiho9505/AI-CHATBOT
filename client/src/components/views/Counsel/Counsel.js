@@ -11,15 +11,19 @@ function Counsel() {
     
     const messagesEnd = useRef(null)
     const [allMessage, setallMessage] = useState([])
+    let prev = [];
     
     useEffect( () => {
        const fun = async () => {
-        let data = {'_id' : _id};
-        const rep = await Axios.post('/api/chats/get',data)
-                         .then(response => response.data);
-        if(rep.msg !== null) setallMessage(rep.msg)
-        eventQuery('welcomeToMyWebsite');
-       }
+            let data = {'_id' : _id};
+            const rep = await Axios.post('/api/chats/get',data)
+                            .then(response => response.data);
+
+            if(rep.success){
+                if(rep.msg) prev = [rep.msg.msg]
+            }
+            eventQuery('welcomeToMyWebsite');
+        }
        fun();
        
     }, [])
@@ -106,8 +110,8 @@ function Counsel() {
                 }
             }
             await Axios.post('/api/gs/tts',{'text':data})
-
-            setallMessage([...allMessage,conversation])
+       
+            prev.length === 0 ? setallMessage([conversation]) : setallMessage([...prev[0],conversation])
 
         } catch (error) {
             let conversation = {
@@ -119,7 +123,8 @@ function Counsel() {
                 }
             }
             await Axios.post('/api/gs/tts',{'text':"에러가 발생하였습니다. 다시 시도해주세요."})
-            setallMessage([...allMessage,conversation])
+            prev.length === 0 ? setallMessage([conversation]) : setallMessage([...prev[0],conversation])
+            
         }           
 
     }
@@ -159,7 +164,7 @@ function Counsel() {
     const clickSave = async () => {
         if(window.confirm('대화를 저장하시겠습니까?')){
             let data = {
-                '_id' : _id,
+                'writer' : _id,
                 'msg' : allMessage
             };
             const rep = await Axios.post('/api/chats/make',data)
