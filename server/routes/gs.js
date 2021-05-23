@@ -6,10 +6,14 @@ const textToSpeech = require('@google-cloud/text-to-speech');
 const fs = require('fs');
 const util = require('util');
 // Creates a client
+const path = require("path");
+
 const client = new textToSpeech.TextToSpeechClient();
 
-router.post('/tts', async (req, res) => {
 
+
+router.post('/tts', async (req, res) => {
+ 
     const text = req.body.text;
 
   // Construct the request
@@ -20,13 +24,14 @@ router.post('/tts', async (req, res) => {
         // select the type of audio encoding
         audioConfig: {audioEncoding: 'MP3'},
     };
- 
-    const outputFile = 'client/src/components/views/Counsel/output.mp3';
+    console.log('PATH',process.env.PATH);
+    const outputFile = './client/src/components/views/Counsel/output.mp3';
     // Performs the text-to-speech request
     const [response] = await client.synthesizeSpeech(request);
     // Write the binary audio content to a local file
     const writeFile = util.promisify(fs.writeFile);
     await writeFile(outputFile, response.audioContent, 'binary');
+  
     res.send();
    
 })
