@@ -14,7 +14,15 @@ function Counsel() {
     const [allMessage, setallMessage] = useState([])
     
     useEffect( () => {
-       eventQuery('welcomeToMyWebsite');
+       const fun = async () => {
+        let data = {'_id' : _id};
+        const rep = await Axios.post('/api/chats/get',data)
+                         .then(response => response.data);
+        if(rep.msg !== null) setallMessage(rep.msg)
+        eventQuery('welcomeToMyWebsite');
+       }
+       fun();
+       
          
     }, [])
 

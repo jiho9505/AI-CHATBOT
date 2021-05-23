@@ -4,18 +4,16 @@ const { Chats } = require("../models/Chats");
 const { auth } = require("../middleware/auth");
 
 router.post("/get", (req, res) => {
-    // Chats.findOne({ writer : req.body._id } , (err,msg)=>{
-    //     if(err) return res.json({ success: false, message: 'Error 발생..' })
-       
-    //     return res.json({
-    //         success: true,
-    //         msg: msg
-    //     });
-    // })
-    return res.json({
-                success: true,
-           
-            });
+    console.log('id',req.body._id)
+    Chats.findOne({ writer : req.body._id } , (err,msg)=>{
+        if(err) return res.json({ success: false, message: 'Error 발생..' })
+        console.log('m',msg)
+        return res.json({
+            success: true,
+            msg: msg
+        });
+    })
+   
 
 });
 
