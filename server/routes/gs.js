@@ -26,7 +26,7 @@ router.post('/tts', async (req, res) => {
     };
     const road = '../../client/src/components/views/Counsel/output.mp3'
     const testPath = path.resolve(__dirname, "../../client", "src", 'components', 'views' , 'Counsel' , 'output.mp3')
-    
+    console.log('p',testPath)
     // C:\Users\문지호\Desktop\WebProject\Web_Capston\server\routes
     // '
     // path: path.join(__dirname, 'path/to/.env')
