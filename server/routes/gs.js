@@ -24,8 +24,12 @@ router.post('/tts', async (req, res) => {
         // select the type of audio encoding
         audioConfig: {audioEncoding: 'MP3'},
     };
-    console.log('PATH',process.env.PATH);
-    const outputFile = './client/src/components/views/Counsel/output.mp3';
+    const road = '../../client/src/components/views/Counsel/output.mp3'
+    console.log('PATH',path.join(__dirname,road))
+    // C:\Users\문지호\Desktop\WebProject\Web_Capston\server\routes
+    // '
+    // path: path.join(__dirname, 'path/to/.env')
+    const outputFile = path.join(__dirname,road);
     // Performs the text-to-speech request
     const [response] = await client.synthesizeSpeech(request);
     // Write the binary audio content to a local file
