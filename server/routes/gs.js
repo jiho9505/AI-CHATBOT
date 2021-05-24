@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 // Imports the Google Cloud client library
 const textToSpeech = require('@google-cloud/text-to-speech');
+
+const app_root_path = require('app-root-path').path;
 // Import other required libraries
 const fs = require('fs');
 const util = require('util');
@@ -9,7 +11,11 @@ const util = require('util');
 const path = require("path");
 
 const client = new textToSpeech.TextToSpeechClient();
+const log = console.log;
 
+log(`__dirname`, __dirname);
+log(`process.cwd()`, process.cwd());
+log(`app_root_path`, app_root_path);
 
 
 router.post('/tts', async (req, res) => {
@@ -27,6 +33,7 @@ router.post('/tts', async (req, res) => {
     const road = '../../client/src/components/views/Counsel/output.mp3'
     const testPath = path.resolve(__dirname, "../../client", "src", 'components', 'views' , 'Counsel' , 'output.mp3')
     // const th = path.posix.join(__dirname, road)
+    
     console.log('p',path.join(__dirname,'../../client/src/components/views/Counsel/output.mp3'))
     // /app/client/src/components/views/Counsel/output.mp3
     // console.log('p',th)

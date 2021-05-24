@@ -22,6 +22,7 @@
     "@google-cloud/text-to-speech": "^3.2.1",
     "actions-on-google": "^2.13.0",
     "antd": "^4.15.1",
+    "app-root-path": "^3.0.0",
     "aws-sdk": "^2.786.0",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.18.3",
