@@ -13,9 +13,7 @@ const path = require("path");
 const client = new textToSpeech.TextToSpeechClient();
 const log = console.log;
 
-log(`__dirname`, __dirname);
-log(`process.cwd()`, process.cwd());
-log(`app_root_path`, app_root_path);
+
 
 
 router.post('/tts', async (req, res) => {
@@ -35,6 +33,9 @@ router.post('/tts', async (req, res) => {
     // const th = path.posix.join(__dirname, road)
     
     console.log('p',path.join(__dirname,'../../client/src/components/views/Counsel/output.mp3'))
+    log(`__dirname`, __dirname);
+    log(`process.cwd()`, process.cwd());
+    log(`app_root_path`, app_root_path);
     // /app/client/src/components/views/Counsel/output.mp3
     // console.log('p',th)
     // C:\Users\문지호\Desktop\WebProject\Web_Capston\client\src\components\views\Counsel\output.mp3'
