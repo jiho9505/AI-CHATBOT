@@ -17,7 +17,7 @@ const connect = mongoose.connect(config.mongoURI,
   .catch(err => console.log(err));
 
 app.use(cors())
-app.use(express.static('public'));
+app.use(express.static('audio'));
 //to not get any deprecation warning or error
 //support parsing of application/x-www-form-urlencoded post data
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -32,8 +32,6 @@ app.use('/api/board', require('./routes/board'));
 app.use('/api/chats', require('./routes/chats'));
 app.use('/api/gs', require('./routes/gs'));
 //use this to show the image you have in node js server to client (react js)
-
-app.use('/storeImages', express.static('storeImages'));
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === "production") {

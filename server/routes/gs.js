@@ -35,7 +35,7 @@ router.post('/tts', async (req, res) => {
     console.log('p',path.join(__dirname,'../../client/src/components/views/Counsel/output.mp3'))
     log(`__dirname`, __dirname);
     log(`process.cwd()`, path.join(process.cwd(),'client/src/components/views/Counsel/output.mp3'));
-    log(`app_root_path`, path.join(app_root_path,'client/public/test.mp3'));
+    log(`app_root_path`, path.join(app_root_path,'client/audio/output.mp3'));
     // /app/client/src/components/views/Counsel/output.mp3
     // console.log('p',th)
     // C:\Users\문지호\Desktop\WebProject\Web_Capston\client\src\components\views\Counsel\output.mp3'
@@ -43,7 +43,7 @@ router.post('/tts', async (req, res) => {
     // path: path.join(__dirname, 'path/to/.env')
     // path.join => path.posix.join
     
-    const outputFile = path.join(app_root_path,'client/public/test.mp3')
+    const outputFile = path.join(app_root_path,'client/audio/output.mp3')
     // Performs the text-to-speech request
     const [response] = await client.synthesizeSpeech(request);
     // Write the binary audio content to a local file
