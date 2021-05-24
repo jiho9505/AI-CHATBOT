@@ -17,7 +17,7 @@ const connect = mongoose.connect(config.mongoURI,
   .catch(err => console.log(err));
 
 app.use(cors())
-app.use(express.static('public'));
+
 //to not get any deprecation warning or error
 //support parsing of application/x-www-form-urlencoded post data
 app.use(bodyParser.urlencoded({ extended: true }));

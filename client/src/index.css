@@ -282,8 +282,16 @@ input.error {
   display: none;
 }
 
+.btn_center{
+  display: flex;
+  justify-content: center;
+}
+
 @media (max-width: 767px) {
 
+  .btn_center{
+    flex-direction: column;
+  }
   .updown {
     display: inline;
   }

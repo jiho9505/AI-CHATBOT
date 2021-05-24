@@ -31,7 +31,7 @@ function Counsel() {
 
     useEffect(() => {
         messagesEnd.current.scrollTo({
-            top: 10000,
+            top: 30000,
             behavior: 'smooth'
           });
 
@@ -211,8 +211,8 @@ function Counsel() {
                 </div>
             </div>
             <br/>
-            <div className='center'> 
-                <Button type="primary" onClick={clickSave} style={{marginRight:'15px'}}>Save</Button>
+            <div className='btn_center'> 
+                <Button type="primary" onClick={clickSave} style={{marginLeft:'10px',marginRight:'15px', marginBottom:'15px'}}>Save</Button>
                 { Switch ? <Button type="primary" onClick={switchState}>Turn off Voice</Button> :
                 <Button type="primary" onClick={switchState}>Turn on Voice</Button>}
             </div>
