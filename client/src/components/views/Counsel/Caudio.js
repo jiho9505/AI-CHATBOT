@@ -1,5 +1,5 @@
 import React from 'react'
-import audio from '../../../../audio/output.mp3'
+import audio from '../../../assets/output.mp3'
 
 function Caudio() {
     

@@ -43,7 +43,8 @@ router.post('/tts', async (req, res) => {
     // path: path.join(__dirname, 'path/to/.env')
     // path.join => path.posix.join
     
-    const outputFile = path.join(app_root_path,'client/audio/output.mp3')
+    // const outputFile = path.join(app_root_path,'client/src/assets/output.mp3')
+    const outputFile = path.join(app_root_path,'client/public/output.mp3')
     // Performs the text-to-speech request
     const [response] = await client.synthesizeSpeech(request);
     // Write the binary audio content to a local file
