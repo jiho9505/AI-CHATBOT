@@ -2,10 +2,9 @@ import React, { useState, useEffect , useRef} from 'react';
 import Axios from 'axios';
 import Message from './Message/Message';
 import { Button, message } from 'antd';
-import Caudio from './Caudio.js'
-
 
 const _id = window.localStorage.getItem('userId');
+
 function Counsel() {
     
     const messagesEnd = useRef(null)
@@ -14,8 +13,8 @@ function Counsel() {
     const [audioSource, setAudioSource] = useState('');
     let prev = [];
     
-    useEffect( () => {
-       const fun = async () => {
+    useEffect(() => {
+       const func = async () => {
             let data = {'_id' : _id};
             const rep = await Axios.post('/api/chats/get',data)
                             .then(response => response.data);
@@ -25,21 +24,17 @@ function Counsel() {
             }
             eventQuery('welcomeToMyWebsite');
         }
-       fun();
+       func();
        
     }, [])
 
     useEffect(() => {
         messagesEnd.current.scrollTo({
-            top: 30000,
+            top: messagesEnd.current.scrollHeight,
             behavior: 'smooth'
           });
 
     }, [allMessage])
-
- 
-
-
 
     const textQuery = async (text) => {
 
@@ -51,8 +46,6 @@ function Counsel() {
                 }
             }
         }
-    
-       
     
         const textQueryVariables = {
             text
@@ -187,31 +180,25 @@ function Counsel() {
     }
 
     const requestAudioFile = async (datas) => {
-        console.log("request Audio");
-        
-        
+        // console.log("request Audio");
+    
         const response = await Axios.post('/api/gs/tts',{'text':datas},{
             responseType : 'arraybuffer'
         })
 
-        console.log("response : ",response);
-
-        // let arr = toArrayBuffer(response.data);
         // makeAudio(arr);
 
         const audioContext = getAudioContext();
-        console.log(response.data)
         // makeAudio(response)
         const audioBuffer = await audioContext.decodeAudioData(response.data);
-        console.log(audioBuffer)
+
         //create audio source
         const source = audioContext.createBufferSource();
         source.buffer = audioBuffer;
         source.connect(audioContext.destination);
         source.start();
-        console.log("source : ", source);
         setAudioSource(source);
-        console.log('suc')
+
     }
 
     const getAudioContext = () => {
@@ -229,8 +216,7 @@ function Counsel() {
             </h2>
             <div className='grayBorder'/>
             <br/>
-            <Caudio audio={audioSource}></Caudio>
-            
+            <audio style={{display:'none'}} type = "audio/mpeg"  src={audioSource} controls autoPlay/>
             <div className="counsel__whole">
                 <div className="counsel__wholechat">
                     <div className="counsel__chat" ref={messagesEnd}>
