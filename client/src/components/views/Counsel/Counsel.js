@@ -6,12 +6,12 @@ import Caudio from './Caudio.js'
 
 
 const _id = window.localStorage.getItem('userId');
-
 function Counsel() {
     
     const messagesEnd = useRef(null)
     const [allMessage, setallMessage] = useState([])
     const [Switch, setSwitch] = useState(false)
+    const [audioSource, setAudioSource] = useState('');
     let prev = [];
     
     useEffect( () => {
@@ -61,16 +61,17 @@ function Counsel() {
         try {
             
             const response = await Axios.post('/api/dialogflow/textQuery', textQueryVariables)
-            let data = response.data[0]
+            let datas = response.data[0]
             let conversation = {
                 who: '심상이',
                 content: {
                     text: {
-                        text: data
+                        text: datas
+        
                     }
                 }
             }
-            if(Switch) Axios.post('/api/gs/tts',{'text':data})
+            if(Switch) requestAudioFile(datas)
     
             setallMessage([...allMessage,conversations,conversation])
 
@@ -83,7 +84,8 @@ function Counsel() {
                     }
                 }
             }
-            if(Switch) Axios.post('/api/gs/tts',{'text':"에러가 발생하였습니다. 다시 시도해주세요."})
+            if(Switch) requestAudioFile("에러가 발생하였습니다. 다시 시도해주세요.")
+            
             setallMessage([...allMessage,conversations,conversation])
 
 
@@ -100,16 +102,16 @@ function Counsel() {
         try {
 
             const response = await Axios.post('/api/dialogflow/eventQuery', eventQueryVariables)
-            let data = response.data[0];
+            let datas = response.data[0];
             let conversation = {
                 who: '심상이',
                 content: {
                     text: {
-                        text: data
+                        text: datas
                     }
                 }
             }
-            await Axios.post('/api/gs/tts',{'text':data})
+            if(Switch) await requestAudioFile(datas)
        
             prev.length === 0 ? setallMessage([conversation]) : setallMessage([...prev[0],conversation])
             
@@ -122,7 +124,7 @@ function Counsel() {
                     }
                 }
             }
-            await Axios.post('/api/gs/tts',{'text':"에러가 발생하였습니다. 다시 시도해주세요."})
+            if(Switch) requestAudioFile("에러가 발생하였습니다. 다시 시도해주세요.")
             prev.length === 0 ? setallMessage([conversation]) : setallMessage([...prev[0],conversation])
             
         }           
@@ -184,6 +186,41 @@ function Counsel() {
         setSwitch(!Switch)
     }
 
+    const requestAudioFile = async (datas) => {
+        console.log("request Audio");
+        
+        
+        const response = await Axios.post('/api/gs/tts',{'text':datas},{
+            responseType : 'arraybuffer'
+        })
+
+        console.log("response : ",response);
+
+        // let arr = toArrayBuffer(response.data);
+        // makeAudio(arr);
+
+        const audioContext = getAudioContext();
+        console.log(response.data)
+        // makeAudio(response)
+        const audioBuffer = await audioContext.decodeAudioData(response.data);
+        console.log(audioBuffer)
+        //create audio source
+        const source = audioContext.createBufferSource();
+        source.buffer = audioBuffer;
+        source.connect(audioContext.destination);
+        source.start();
+        console.log("source : ", source);
+        setAudioSource(source);
+        console.log('suc')
+    }
+
+    const getAudioContext = () => {
+        AudioContext = window.AudioContext; /* || window.webkitAudioContext */
+        const audioContent = new AudioContext();
+        return audioContent;
+    }
+
+
     return (
         <div className='pageSize'>
 
@@ -192,7 +229,7 @@ function Counsel() {
             </h2>
             <div className='grayBorder'/>
             <br/>
-            <Caudio></Caudio>
+            <Caudio audio={audioSource}></Caudio>
             
             <div className="counsel__whole">
                 <div className="counsel__wholechat">

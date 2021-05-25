@@ -25,9 +25,9 @@ router.post('/tts', async (req, res) => {
     const request = {
         input: {text: text},
         // Select the language and SSML voice gender (optional)
-        voice: {languageCode: 'ko', ssmlGender: 'NEUTRAL'},
+        voice: {languageCode: 'ko-KR', ssmlGender: 'NEUTRAL'},
         // select the type of audio encoding
-        audioConfig: {audioEncoding: 'MP3'},
+        audioConfig: {audioEncoding: 'LINEAR16', speakingRate : 1},
     };
     
     // log(`__dirname`, __dirname);
@@ -39,11 +39,14 @@ router.post('/tts', async (req, res) => {
     // Performs the text-to-speech request
     const [response] = await client.synthesizeSpeech(request);
     // Write the binary audio content to a local file
-    const writeFile = util.promisify(fs.writeFile);
+    // const writeFile = util.promisify(fs.writeFile);
 
-    await writeFile(outputFile, response.audioContent, 'binary');
-  
-    res.send();
+    // await writeFile(outputFile, response.audioContent, 'binary');
+    res.header({
+      // 'Content-Type' : 'audio/wav',
+      // 'Content-length' : bufferData.length
+    })
+    res.send(response.audioContent)
    
 })
 

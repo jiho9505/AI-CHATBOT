@@ -1,11 +1,11 @@
 import React from 'react'
 import audio from './output.mp3'
 
-function Caudio() {
+function Caudio(props) {
     
     return (
         <div>
-            <audio style={{display:'none'}} src={audio} controls autoPlay/>
+            <audio style={{display:'none'}} type = "audio/mpeg"  src={props.audio} controls autoPlay/>
         </div>
         
     )
