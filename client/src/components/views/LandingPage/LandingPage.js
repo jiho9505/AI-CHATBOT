@@ -12,21 +12,17 @@ function LandingPage() {
             
             </h2>
             
-            <div className="centermode"> 
-                <h3>안녕, 오늘 하루도 고생많았어!</h3> 
-                <Link to='/counsel'>
-                    <Button>
-                        Click
-                    </Button>
-                    
-                </Link>
-            </div>
-            
-  
-            
-        
-                
-    
+            <div className="center">
+                <div className="centermode"> 
+                    <h3>안녕, 오늘 하루도 고생많았어!</h3> 
+                    <Link to='/counsel'>
+                        <Button>
+                            Click
+                        </Button>
+                        
+                    </Link>
+                </div>
+            </div>  
             
         </div>
     )
