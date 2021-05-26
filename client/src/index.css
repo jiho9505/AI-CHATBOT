@@ -50,10 +50,7 @@ body {
   background: url('assets/bg.png') center/cover no-repeat;
 }
 
-a {
-  text-decoration: none;
-  color: var(--color-white);
-}
+
 
 
 button {
