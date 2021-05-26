@@ -1,5 +1,5 @@
 module.exports = {
-    googleProjectID : process.env.googleProjectID,
+    googleProjectID : process.env.GCP_PROJECT,
     dialogFlowSessionID: process.env.dialogFlowSessionID ,
     dialogFlowSessionLanguageCode: process.env.dialogFlowSessionLanguageCode,
     agentId: process.env.agentId,

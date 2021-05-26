@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const {SessionsClient} = require('@google-cloud/dialogflow-cx');
-
-const projectId = 'propane-shell-311716'
+const config = require('../config/key.js')
+// const projectId = 'propane-shell-311716'
+const projectId = config.googleProjectID
 const languageCode = 'ko'
 const agentId = '5d4e3a8e-26e7-4f9b-b283-49abe1c9c277'
 const location = 'asia-northeast1'
