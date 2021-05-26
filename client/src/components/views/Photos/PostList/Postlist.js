@@ -63,7 +63,10 @@ function Postlist(props) {
                 
                 <br />
                 <br />
-                <PictureUpload images={Images}  refreshFunction={updateImages} />
+                <div className='center'>
+                    <PictureUpload images={Images}  refreshFunction={updateImages} />
+                </div>
+                
                 <br />
         
                 <TextArea showCount onChange={DescHandler} value={Description} style={{height:100}} 
