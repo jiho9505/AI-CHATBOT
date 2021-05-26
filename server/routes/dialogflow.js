@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const {SessionsClient} = require('@google-cloud/dialogflow-cx');
 const config = require('../config/key.js')
-// const projectId = 'propane-shell-311716'
+
 const projectId = config.googleProjectID
 const languageCode = 'ko'
 const agentId = '5d4e3a8e-26e7-4f9b-b283-49abe1c9c277'
@@ -60,9 +60,5 @@ router.post('/eventQuery', async (req, res) => {
         }
     }
 })
-
-// const projectId = config.googleProjectID
-// const languageCode = config.dialogFlowSessionLanguageCode
-// const agentId = config.agentId
 
 module.exports = router;
