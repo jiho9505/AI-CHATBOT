@@ -3,7 +3,7 @@ import Axios from 'axios';
 import Message from './Message/Message';
 import { Button, message } from 'antd';
 
-const _id = window.localStorage.getItem('userId');
+
 
 function Counsel() {
     
@@ -11,9 +11,11 @@ function Counsel() {
     const [allMessage, setallMessage] = useState([])
     const [Switch, setSwitch] = useState(false)
     const [audioSource, setAudioSource] = useState('');
+    const _id = window.localStorage.getItem('userId');
     let prev = [];
     
     useEffect(() => {
+       
        const func = async () => {
             let data = {'_id' : _id};
             const rep = await Axios.post('/api/chats/get',data)

@@ -12,7 +12,7 @@ function RightMenu(props) {
   const logoutHandler = () => {
     axios.get(`${USER_SERVER}/logout`).then(response => {
       if (response.status === 200) {
-        window.localStorage.removeItem('userId')     
+        window.localStorage.removeItem('userId');   
       } else {
         alert('Log Out Failed')
       }

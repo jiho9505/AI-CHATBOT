@@ -6,10 +6,11 @@ import axios from 'axios';
 
 const { Meta } = Card;
 
-let id = localStorage.getItem('userId');
+
 
 function Photos() {
-
+    let id = localStorage.getItem('userId');
+    
     useEffect(() => {
         if(id){
             axios.get(`/api/board/?id=${id}`)
