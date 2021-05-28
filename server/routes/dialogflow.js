@@ -9,13 +9,9 @@ const agentId = '5d4e3a8e-26e7-4f9b-b283-49abe1c9c277'
 const location = 'asia-northeast1'
 const client = new SessionsClient({apiEndpoint: 'asia-northeast1-dialogflow.googleapis.com'})
 
-const sessionId = Math.random().toString(36).substring(7);
-const sessionPath = client.projectLocationAgentSessionPath(
-    projectId,
-    location,
-    agentId,
-    sessionId
-);
+let sessionId;
+let sessionPath;
+
 
 router.post('/textQuery', async (req, res) => {
 
@@ -41,6 +37,14 @@ router.post('/textQuery', async (req, res) => {
 
 router.post('/eventQuery', async (req, res) => {
    
+    sessionId = Math.random().toString(36).substring(7);
+    sessionPath = client.projectLocationAgentSessionPath(
+        projectId,
+        location,
+        agentId,
+        sessionId
+    );
+
     const request = {
         session: sessionPath,
         queryInput: {
