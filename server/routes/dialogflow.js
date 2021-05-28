@@ -12,7 +12,6 @@ const client = new SessionsClient({apiEndpoint: 'asia-northeast1-dialogflow.goog
 let sessionId;
 let sessionPath;
 
-
 router.post('/textQuery', async (req, res) => {
 
     const request = {
