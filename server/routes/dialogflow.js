@@ -36,6 +36,7 @@ router.post('/textQuery', async (req, res) => {
 
 router.post('/eventQuery', async (req, res) => {
    
+    
     sessionId = Math.random().toString(36).substring(7);
     sessionPath = client.projectLocationAgentSessionPath(
         projectId,
