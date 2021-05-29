@@ -10,17 +10,21 @@
 
 ## 프로젝트 개발내용
 <p>- MERN STACK / CSR</p> 
-<p>- Using Dialogflow</p>
-<p>- Mobile Programming</p>  
+<p>- Using Dialogflow CX & Google Speech TTS</p>
+<p>- 반응형 웹앱<p>
 
+## 프로젝트 동기
+<p>- 우리나라 청소년 자살율이 전세계 1위 이다.</p>
+<p>- 많은 학생들이 상담 치료를 어려워 하면서 도움을 받지 못한다.<p>
+<p>- 이야기 치료법을 적용한 AI챗봇을 활용하여 그런 학생들의 고민을 상담해주고<p>
+<p>- 위로해주면서 우울증을 극복할 수 있도록 도움을 주고자 한다<p>
 
 ## 프로젝트 내용
-<p>- 코로나로 인해 우울증을 앓는 사람이 증가함에 따라 우울증을 덜어주기 위한 심리 상담 챗봇 개발</p>
-<p>- 심리 상담에 맞는 데이터들을 기반으로 대화가 이어지며 TTS / STT 기술로 음성으로의 대화도 가능하다.</p>
+<p>- Dialogflow CX를 사용하여 기존 ES보다 복잡한 대화 시나리오를 구성</p>
+<p>- 심리 상담에 맞는 데이터들을 기반으로 대화가 이어지며 TTS 기술로 음성대화도 가능</p>
+<p>- 추억을 저장하기 위한 이미지 업로드 기능(Using AWS S3)</p>
 
 ## 최종 결과물
-<p> 홈페이지(모바일 Version) </p>
-<p> Sleep mode라 초기 로딩 delay </p>
 🏠 [https://aicapston.herokuapp.com/] 
 
 <br><br/>
