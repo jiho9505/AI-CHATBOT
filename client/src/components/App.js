@@ -1,18 +1,19 @@
 import React, { Suspense } from 'react';
 import { Route, Switch } from "react-router-dom";
 import LandingPage from "./views/LandingPage/LandingPage.js";
-import Counsel from "./views/Counsel/Counsel"
-import NotFound from "./views/NotFound/NotFound"
 import Footer from "./views/Footer/Footer"
 import Auth from "../hoc/auth";
-import LoginPage from './views/LoginPage/LoginPage.js'
-import RegisterPage from './views/RegisterPage/RegisterPage.js'
-import MyPage from './views/MyPage/MyPage'
 import NavBar from './views/NavBar/NavBar.js'
-import Photos from './views/Photos/Photos'
-import Postlist from './views/Photos/PostList/Postlist'
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
+
+const LoginPage = React.lazy(() => import('./views/LoginPage/LoginPage.js'));
+const RegisterPage = React.lazy(() => import('./views/RegisterPage/RegisterPage.js'));
+const Photos = React.lazy(() => import('./views/Photos/Photos'));
+const Postlist = React.lazy(() => import('./views/Photos/PostList/Postlist'));
+const Counsel = React.lazy(() => import('./views/Counsel/Counsel'));
+const MyPage = React.lazy(() => import('./views/MyPage/MyPage'));
+const NotFound = React.lazy(() => import('./views/NotFound/NotFound'));
 
 function App() {
   const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />
