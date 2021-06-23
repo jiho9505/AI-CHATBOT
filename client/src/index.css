@@ -218,8 +218,10 @@ input.error {
     padding: 10px 0px;
   }
 
- 
-
+ .textSize{
+    height:100px;
+    width:500px;
+ }
 
   .mobilelogo{
     display: none;
@@ -287,7 +289,9 @@ input.error {
 
 @media (max-width: 767px) {
 
-
+  .textSize{
+    width:100%
+  }
   .centermode{
     margin-top: 0px;
     width: 100%;

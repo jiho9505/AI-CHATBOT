@@ -64,14 +64,14 @@ function Postlist(props) {
                 <br />
                 <br />
                 <div className='center'>
-                    <PictureUpload images={Images}  refreshFunction={updateImages} />
+                    <PictureUpload images={Images}  refreshFunction={updateImages} />     
                 </div>
                 
                 <br />
-        
-                <TextArea showCount onChange={DescHandler} value={Description} style={{height:100}} 
-                 maxLength={2500} placeholder='내용을 입력해주세요.'/>
-
+                <div className='center'>
+                    <TextArea showCount onChange={DescHandler} value={Description} className='textSize'
+                    maxLength={2500} placeholder='내용을 입력해주세요.'/>
+                </div>
                 <div style = {{display:'flex', justifyContent:'center'}}>
                     <Button type="primary" htmlType="submit" onClick={submitHandler}>Upload</Button>
                 </div>
