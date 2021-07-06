@@ -25,7 +25,7 @@
 <p>- 추억을 저장하기 위한 이미지 업로드 기능(Using AWS S3)</p>
 
 ## 최종 결과물
-🏠 [https://aicapston.herokuapp.com/] 
+🏠 [https://aicapstons.herokuapp.com] 
 
 <br><br/>
 ## Install
