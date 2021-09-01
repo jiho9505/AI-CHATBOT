@@ -25,6 +25,7 @@
 <p>- 추억을 저장하기 위한 이미지 업로드 기능(Using AWS S3)</p>
 
 ## 최종 결과물
+ - Dialogflow CX 무료 기간 끝나서 잠시 이용 불가입니다.  
 🏠 [https://aicapstons.herokuapp.com] 
 
 <br><br/>
