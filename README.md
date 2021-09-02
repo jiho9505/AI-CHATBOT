@@ -1,3 +1,4 @@
+
 <h1 align="center"> 캡스톤프로젝트 - 심리상담 AI 챗봇👋</h1>
 <p>
   <a href="https://github.com/jiho9505/project#README" target="_blank">
@@ -19,21 +20,17 @@
 <p>- 이야기 치료법을 적용한 AI챗봇을 활용하여 그런 학생들의 고민을 상담해주고<p>
 <p>- 위로해주면서 우울증을 극복할 수 있도록 도움을 주고자 한다<p>
 
-## 프로젝트 내용
+## 챗봇 페이지 
 <p>- Dialogflow CX를 사용하여 기존 ES보다 복잡한 대화 시나리오를 구성</p>
 <p>- 심리 상담에 맞는 데이터들을 기반으로 대화가 이어지며 TTS 기술로 음성대화도 가능</p>
-<p>- 추억을 저장하기 위한 이미지 업로드 기능(Using AWS S3)</p>
 
-## 챗봇 페이지 
+![Animation1](https://user-images.githubusercontent.com/50862052/131800442-222ffa9b-6ec1-4771-9f57-0ed434b9a942.gif)
 
-https://user-images.githubusercontent.com/50862052/131797929-acbc1053-1f62-49f5-9c1b-259c4ef4a1e6.mp4
 
-## 최종 결과물
- - Dialogflow CX 무료 기간 끝나서 잠시 이용 불가입니다.  
- - 발표 영상 : https://www.youtube.com/watch?v=8CoEpxa84-8 
+## 최종 결과물 
+ - 발표 영상 : https://www.youtube.com/watch?v=8CoEpxa84-8
+ - Dialogflow CX 무료 기간 끝나서 챗봇 기능은 잠시 이용 불가합니다...  
  - 🏠 홈페이지 : [https://aicapstons.herokuapp.com] 
-
- 
 
 
 <br><br/>
