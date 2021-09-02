@@ -28,10 +28,9 @@
 
 
 ## 최종 결과물 
- - 발표 영상 : https://www.youtube.com/watch?v=8CoEpxa84-8
+ - 🐱‍🏍 [발표영상](https://www.youtube.com/watch?v=8CoEpxa84-8)
+ - 🏠 [홈페이지](https://aicapstons.herokuapp.com) 
  - Dialogflow CX 무료 기간 끝나서 챗봇 기능은 잠시 이용 불가합니다...  
- - 🏠 홈페이지 : [https://aicapstons.herokuapp.com] 
-
 
 <br><br/>
 ## Install
