@@ -24,9 +24,17 @@
 <p>- 심리 상담에 맞는 데이터들을 기반으로 대화가 이어지며 TTS 기술로 음성대화도 가능</p>
 <p>- 추억을 저장하기 위한 이미지 업로드 기능(Using AWS S3)</p>
 
+## 챗봇 페이지 
+
+https://user-images.githubusercontent.com/50862052/131797929-acbc1053-1f62-49f5-9c1b-259c4ef4a1e6.mp4
+
 ## 최종 결과물
  - Dialogflow CX 무료 기간 끝나서 잠시 이용 불가입니다.  
-🏠 [https://aicapstons.herokuapp.com] 
+ - 발표 영상 : https://www.youtube.com/watch?v=8CoEpxa84-8 
+ - 🏠 홈페이지 : [https://aicapstons.herokuapp.com] 
+
+ 
+
 
 <br><br/>
 ## Install
